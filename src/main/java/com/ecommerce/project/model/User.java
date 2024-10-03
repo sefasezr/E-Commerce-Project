@@ -27,18 +27,18 @@ public class User {
     private Long userId;
 
     @NotBlank
-    @Size(max = 20)
+    @Size(min = 4, max = 20)
     @Column(name = "username")
     private String userName;
 
     @NotBlank
-    @Size(max = 50)
+    @Size(min = 8, max = 50)
     @Email
     @Column(name = "email")
     private String email;
 
     @NotBlank
-    @Size(max = 50)
+    @Size(min = 8, max = 100)
     @Column(name = "password")
     private String password;
 
