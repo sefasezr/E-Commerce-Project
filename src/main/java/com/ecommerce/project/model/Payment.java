@@ -21,13 +21,6 @@ public class Payment {
     @OneToOne(mappedBy = "payment",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Order order;
 
-    public Payment(Long paymentId, String pgPaymentId, String pgStatus, String pgResponseMessage, String pgName) {
-        this.paymentId = paymentId;
-        this.pgPaymentId = pgPaymentId;
-        this.pgStatus = pgStatus;
-        this.pgResponseMessage = pgResponseMessage;
-        this.pgName = pgName;
-    }
 
     @NotBlank
     @Size(min = 4,message = "Payment method must contain at least 4 characters")
@@ -40,4 +33,11 @@ public class Payment {
     private String pgName;
 
 
+    public Payment(String paymentMethod, String pgPaymentId, String pgStatus, String pgResponseMessage, String pgName) {
+        this.paymentMethod = paymentMethod;
+        this.pgPaymentId = pgPaymentId;
+        this.pgStatus = pgStatus;
+        this.pgResponseMessage = pgResponseMessage;
+        this.pgName = pgName;
+    }
 }
