@@ -29,13 +29,13 @@ public class CartController {
     public ResponseEntity<CartDTO> addProductToCart(@PathVariable Long productId,
                                                     @PathVariable Integer quantity){
         CartDTO cartDTO = cartService.addProductToCart(productId,quantity);
-        return new ResponseEntity<CartDTO>(cartDTO, HttpStatus.CREATED);
+        return new ResponseEntity<>(cartDTO, HttpStatus.CREATED);
     }
 
     @GetMapping("/carts")
     public ResponseEntity<List<CartDTO>> getCarts(){
         List<CartDTO> cartDTOs = cartService.getAllCarts();
-        return new ResponseEntity<List<CartDTO>>(cartDTOs,HttpStatus.FOUND);
+        return new ResponseEntity<>(cartDTOs,HttpStatus.FOUND);
     }
 
     @GetMapping("/carts/users/cart")
